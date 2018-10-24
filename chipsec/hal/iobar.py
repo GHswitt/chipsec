@@ -95,10 +95,6 @@ class IOBAR(hal_base.HALBase):
             base = int(bar['fixed_address'],16)
             if logger().VERBOSE: logger().log('[iobar] Using fixed address for {}: 0x{:016X}'.format(bar_name, base))
 
-        if 'fixed_address' in bar:
-            base = int(bar['fixed_address'],16)
-            if logger().VERBOSE: logger().log('[iobar] Using fixed address for {}: 0x{:016X}'.format(bar_name, base))
-
         if 'mask'   in bar: base = base & int(bar['mask'],16)
         if 'offset' in bar: base = base + int(bar['offset'],16)
         size = int(bar['size'],16) if ('size' in bar) else DEFAULT_IO_BAR_SIZE
